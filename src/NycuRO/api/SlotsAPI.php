@@ -31,7 +31,7 @@ class SlotsAPI {
      * @throws PmQueryException
      */
     public function getSlots(): int{
-        $servers = API::getMechanicAPI()->getServers();
+        $servers = (array) API::getMechanicAPI()->getServers();
 
         $slots = 0;
         $slotsServer = count(API::getAPI()->getServer()->getOnlinePlayers());
