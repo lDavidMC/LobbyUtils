@@ -1,0 +1,22 @@
+name: LobbyUtils
+author: NycuRO
+version: "1.0.0-RELEASE"
+api:
+- 3.0.0-ALPHA10
+main: NycuRO\LobbyUtils
+commands:
+ hub:
+  description: You Teleport to HUB
+  usage: "Usage: /hub"
+  permission: nycuro.hub
+ glist:
+  description: You get total players from servers
+  usage: "Usage: /hub"
+  permission: nycuro.glist
+permissions:
+ hub.core:
+  description: "You Teleport to HUB"
+  default: true
+ glist.core:
+  description: "You get total players from servers"
+  default: true

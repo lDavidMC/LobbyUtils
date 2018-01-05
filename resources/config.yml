@@ -1,0 +1,26 @@
+#Config Plugin LobbyUtils
+#Credits: NycuRO
+
+#RO: Porneste si Opreste Functiile Plugin-ului
+#EN: Turn ON or OFF Functions of Plugin
+enableTransfer: true
+enableMessage: true
+enableTitle: true
+enableSubTitle: true
+enableGlobalList: true
+
+#RO: Detaliile Server HUB
+#EN: Server HUB Details
+ip: "nycuro.ddns.net"
+port: 19132
+
+#RO: Mesaje
+#EN: Messages
+messageTransfer: "You are transfered to HUB"
+titleOnTranfer: "You are transfered NOW!"
+subtitleOnTransfer: "Good luck!"
+messageGlobalList: "The total count of players was [players]/[maxplayers]"
+
+#RO: Functiile de la Global List
+#EN: Global List Functions
+servers: "[play.lbsg.net:19132]"
