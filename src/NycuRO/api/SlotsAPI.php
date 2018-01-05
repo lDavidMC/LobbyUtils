@@ -31,11 +31,10 @@ class SlotsAPI {
      * @throws PmQueryException
      */
     public function getSlots(): int{
-        $globalServers = $this->API::getMechanicAPI()->getServers();
-        $servers = $this->API::getMechanicAPI()->getServers($globalServers);
+        $servers = API::getMechanicAPI()->getServers();
 
         $slots = 0;
-        $slotsServer = count($this->API::getAPI()->getServer()->getOnlinePlayers());
+        $slotsServer = count(API::getAPI()->getServer()->getOnlinePlayers());
         foreach ($servers as $server) {
             $parts = explode(":", $server);
             $query = PMQuery::query($parts[0], $parts[1] ?? 19132);
@@ -50,11 +49,10 @@ class SlotsAPI {
      * @throws PmQueryException
      */
     public function getMaxSlots(): int{
-        $globalServers = $this->API::getMechanicAPI()->getServers();
-        $servers = $this->API::getMechanicAPI()->getServers($globalServers);
+        $servers = (array) API::getMechanicAPI()->getServers();
 
         $maxSlots = 0;
-        $slotsServer = $this->API::getAPI()->getServer()->getMaxPlayers();
+        $slotsServer = API::getAPI()->getServer()->getMaxPlayers();
         foreach($servers as $server) {
             $parts = explode(":", $server);
             $query = PMQuery::query($parts[0], $parts[1] ?? 19132);

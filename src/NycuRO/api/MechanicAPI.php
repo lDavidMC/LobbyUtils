@@ -29,7 +29,7 @@ class MechanicAPI {
      */
     public function isTransferEnabled(bool $isEnabled = true): bool{
         $config = API::getAPI()->enableTransfer;
-        if ($config = true) {
+        if ($config == true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -42,7 +42,7 @@ class MechanicAPI {
      */
     public function isMessageEnabled(bool $isEnabled = true) : bool{
         $config = API::getAPI()->messageTransfer;
-        if ($message = true) {
+        if ($config == true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -55,7 +55,7 @@ class MechanicAPI {
      */
     public function isTitleEnabled(bool $isEnabled = true) : bool{
         $config = API::getAPI()->enableTitle;
-        if ($config = true) {
+        if ($config == true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -68,7 +68,7 @@ class MechanicAPI {
      */
     public function isSubTitleEnabled(bool $isEnabled = true) : bool{
         $config = API::getAPI()->enableSubTitle;
-        if ($config = true) {
+        if ($config == true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -81,7 +81,7 @@ class MechanicAPI {
      */
     public function isGlobalListEnabled(bool $isEnabled = true) : bool{
         $config = API::getAPI()->enableGlobalList;
-        if ($config = true) {
+        if ($config == true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -93,8 +93,8 @@ class MechanicAPI {
      * @return array
      */
     public function getServers(array $servers = []) : array{
-        $config = API::getAPI()->servers;
-        if ($config = true) {
+        $config = explode(" ", API::getAPI()->servers);
+        if ($config) {
             $servers = $config;
         }
         return $servers;

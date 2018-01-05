@@ -55,12 +55,13 @@ class MessageAPI {
      * @throws PMQueryException
      */
     public function sendGlobalListMessage(Player $player) : void{
-        $config = API::getAPI()->getConfig()->getAll();
         $messageGlobalList = API::getAPI()->messageGlobalList;
-        if ($config["messageGlobalList"]) {
+        if ($messageGlobalList) {
             $messageGlobalList = str_replace("[players]", API::getSlotsAPI()->getSlots(), $messageGlobalList);
             $messageGlobalList = str_replace("[maxplayers]", API::getSlotsAPI()->getMaxSlots(), $messageGlobalList);
         }
-        $player->sendMessage($messageGlobalList);
+        if (API::getMechanicAPI()->isGlobalListEnabled() == true) {
+            $player->sendMessage($messageGlobalList);
+        }
     }
 }

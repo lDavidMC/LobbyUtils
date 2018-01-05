@@ -34,16 +34,19 @@ class LobbyUtils extends PluginBase {
     public $titleOnTransfer = "";
     public $subtitleOnTransfer = "";
     public $messageGlobalList = "";
-    public $servers = [];
+    public $servers = "";
 
     public function onLoad() {
         if (!(API::getAPI() instanceof $this)) {
             API::$mainAPI = $this;
-        } else if (!(API::$mechanicAPI instanceof MechanicAPI)) {
+        }
+        if (!(API::$mechanicAPI instanceof MechanicAPI)) {
             API::$mechanicAPI = new MechanicAPI(new API());
-        } else if (!(API::getMessageAPI() instanceof MessageAPI)) {
+        }
+        if (!(API::getMessageAPI() instanceof MessageAPI)) {
             API::$messageAPI = new MessageAPI(new API());
-        } else if (!(API::getSlotsAPI() instanceof SlotsAPI)) {
+        }
+        if (!(API::getSlotsAPI() instanceof SlotsAPI)) {
             API::$slotsAPI = new SlotsAPI(new API());
         }
     }

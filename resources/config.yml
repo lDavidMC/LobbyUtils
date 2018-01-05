@@ -23,4 +23,4 @@ messageGlobalList: "The total count of players was [players]/[maxplayers]"
 
 #RO: Functiile de la Global List
 #EN: Global List Functions
-servers: "[play.lbsg.net:19132]"
+servers: "play.lbsg.net:19132 play.inpvp.net:19132"
