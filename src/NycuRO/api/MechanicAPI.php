@@ -28,8 +28,8 @@ class MechanicAPI {
      * @return bool
      */
     public function isTransferEnabled(bool $isEnabled = true): bool{
-        $config = $this->API::getAPI()->getConfig()->getAll();
-        if ($config["enableTransfer"] == true) {
+        $config = API::getAPI()->enableTransfer;
+        if ($config = true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -41,8 +41,8 @@ class MechanicAPI {
      * @return bool
      */
     public function isMessageEnabled(bool $isEnabled = true) : bool{
-        $config = $this->API::getAPI()->getConfig()->getAll();
-        if ($config["enableMessage"] == true) {
+        $config = API::getAPI()->messageTransfer;
+        if ($message = true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -54,8 +54,8 @@ class MechanicAPI {
      * @return bool
      */
     public function isTitleEnabled(bool $isEnabled = true) : bool{
-        $config = $this->API::getAPI()->getConfig()->getAll();
-        if ($config["enableTitle"] == true) {
+        $config = API::getAPI()->enableTitle;
+        if ($config = true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -67,8 +67,8 @@ class MechanicAPI {
      * @return bool
      */
     public function isSubTitleEnabled(bool $isEnabled = true) : bool{
-        $config = $this->API::getAPI()->getConfig()->getAll();
-        if ($config["enableSubTitle"] == true) {
+        $config = API::getAPI()->enableSubTitle;
+        if ($config = true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -80,8 +80,8 @@ class MechanicAPI {
      * @return bool
      */
     public function isGlobalListEnabled(bool $isEnabled = true) : bool{
-        $config = $this->API::getAPI()->getConfig()->getAll();
-        if ($config["enableGlobalList"] == true) {
+        $config = API::getAPI()->enableGlobalList;
+        if ($config = true) {
             return $isEnabled;
         } else {
             return ($isEnabled = false);
@@ -93,9 +93,9 @@ class MechanicAPI {
      * @return array
      */
     public function getServers(array $servers = []) : array{
-        $config = $this->API::getAPI()->getConfig()->getAll();
-        if ($config["servers"] == true) {
-            $servers = $config["servers"];
+        $config = API::getAPI()->servers;
+        if ($config = true) {
+            $servers = $config;
         }
         return $servers;
     }

@@ -82,9 +82,9 @@ class LobbyUtils extends PluginBase {
      * @throws PMQueryException
      */
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
+        if (!$sender instanceof Player) return false;
         switch ($command->getName()) {
             case "hub":
-                if (!$sender instanceof Player) return false;
                 API::getMessageAPI()->sendMessageTransfer($sender);
                 API::getMessageAPI()->sendTitleTransfer($sender);
                 if (API::getMechanicAPI()->isTransferEnabled() == true) {
@@ -92,7 +92,6 @@ class LobbyUtils extends PluginBase {
                 }
                 break;
             case "glist":
-                if (!$sender instanceof Player or !$sender instanceof ConsoleCommandSender) return false;
                 if (API::getMechanicAPI()->isGlobalListEnabled() == true) {
                     API::getMessageAPI()->sendGlobalListMessage($sender);
                 }

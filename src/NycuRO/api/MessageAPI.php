@@ -31,12 +31,8 @@ class MessageAPI {
      * @param Player $player
      */
     public function sendMessageTransfer(Player $player) : void{
-        $config = $this->API::getAPI()->getConfig()->getAll();
-        $message = "";
-        if ($config["messageTransfer"]) {
-            $message = $config["messageTransfer"];
-        }
-        if ($this->API::getMechanicAPI()->isMessageEnabled() == true) {
+        $message = API::getAPI()->messageTransfer;
+        if (API::getMechanicAPI()->isMessageEnabled() == true) {
             $player->sendMessage($message);
         }
     }
@@ -45,18 +41,11 @@ class MessageAPI {
      * @param Player $player
      */
     public function sendTitleTransfer(Player $player) : void{
-        $config = $this->API::getAPI()->getConfig()->getAll();
-        $messageTitle = "";
-        $messageSubTitle = "";
-        if ($config["titleOnTranfer"]) {
-            $messageTitle = $config["titleOnTranfer"];
-        }
-        if ($config["subtitleOnTransfer"]) {
-            $messageSubTitle = $config["subtitleOnTransfer"];
-        }
-        if ($this->API::getMechanicAPI()->isTitleEnabled() == true && $this->API::getMechanicAPI()->isSubTitleEnabled() == true) {
+        $messageTitle = API::getAPI()->titleOnTransfer;
+        $messageSubTitle = API::getAPI()->subtitleOnTransfer;
+        if (API::getMechanicAPI()->isTitleEnabled() == true && API::getMechanicAPI()->isSubTitleEnabled() == true) {
             $player->addTitle($messageTitle, $messageSubTitle);
-        } else if ($this->API::getMechanicAPI()->isTitleEnabled() == true && $this->API::getMechanicAPI()->isSubTitleEnabled() == false) {
+        } else if (API::getMechanicAPI()->isTitleEnabled() == true && API::getMechanicAPI()->isSubTitleEnabled() == false) {
             $player->addTitle($messageTitle);
         }
     }
@@ -66,14 +55,12 @@ class MessageAPI {
      * @throws PMQueryException
      */
     public function sendGlobalListMessage(Player $player) : void{
-        $config = $this->API::getAPI()->getConfig()->getAll();
-        $messageGlobalList = "";
-        $messageGlobalListFinal = "";
+        $config = API::getAPI()->getConfig()->getAll();
+        $messageGlobalList = API::getAPI()->messageGlobalList;
         if ($config["messageGlobalList"]) {
-            $messageGlobalList = $config["messageGlobalList"];
-            $messageGlobalListFinal = str_replace("[players]", $this->API::getSlotsAPI()->getSlots(), $messageGlobalList);
-            $messageGlobalListFinal = str_replace("[maxplayers]", $this->API::getSlotsAPI()->getMaxSlots(), $messageGlobalList);
+            $messageGlobalList = str_replace("[players]", API::getSlotsAPI()->getSlots(), $messageGlobalList);
+            $messageGlobalList = str_replace("[maxplayers]", API::getSlotsAPI()->getMaxSlots(), $messageGlobalList);
         }
-        $player->sendMessage($messageGlobalListFinal);
+        $player->sendMessage($messageGlobalList);
     }
 }
