@@ -46,13 +46,10 @@
 
                               🎉 This plugin was very very useful on API. You can get any from them!
 
-                                             ```php
-                                             API::getMechanicAPI()
-                                             API::getMessageAPI()
-                                             API::getAPI()
-                                             API::getSlotsAPI()
-                                             ```
-
+                                                      API::getMechanicAPI()
+                                                      API::getMessageAPI()
+                                                       API::getSlotsAPI()
+                                                          API::getAPI()
 
 
 
