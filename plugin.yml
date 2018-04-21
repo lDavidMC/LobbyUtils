@@ -1,8 +1,7 @@
 name: LobbyUtils
 author: NycuRO
 version: "1.0.0-RELEASE"
-api:
-- 3.0.0-ALPHA10
+api: [3.0.0-ALPHA111, 3.0.0-ALPHA12]
 main: NycuRO\LobbyUtils
 commands:
  hub:
